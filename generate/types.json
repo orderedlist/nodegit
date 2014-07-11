@@ -40,8 +40,8 @@
     "cpp": "AttrForeachCb"
   },
   "void *": {
-    "js": "void",
-    "cpp": "void"
+    "cpp": "Function",
+    "js": "Function"
   },
   "git_attr_cache_flush": {
     "cpp": "AttrCacheFlush",
@@ -172,8 +172,8 @@
     "js": "checkoutHead"
   },
   "git_checkout_opts *": {
-    "js": "CheckoutOpts",
-    "cpp": "CheckoutOpts"
+    "cpp": "GitCheckoutOpts",
+    "js": "CheckoutOpts"
   },
   "git_checkout_index": {
     "cpp": "CheckoutIndex",
@@ -1650,8 +1650,8 @@
     "js": "setCallbacks"
   },
   "git_remote_callbacks *": {
-    "js": "RemoteCallbacks",
-    "cpp": "RemoteCallbacks"
+    "cpp": "GitRemoteCallbacks",
+    "js": "RemoteCallbacks"
   },
   "git_remote_stats": {
     "cpp": "Stats",
@@ -2037,12 +2037,12 @@
     "js": "list"
   },
   "git_clone": {
-    "cpp": "GitClone",
-    "js": "Clone"
+    "cpp": "Clone",
+    "js": "clone"
   },
   "const git_clone_options *": {
-    "js": "CloneOptions",
-    "cpp": "GitCloneOptions"
+    "cpp": "GitCloneOptions",
+    "js": "CloneOptions"
   },
   "git_remote_load": {
     "cpp": "Load",
@@ -3109,16 +3109,16 @@
     "js": "Clone"
   },
   "git_clone *": {
-    "cpp": "GitClone",
-    "js": "Clone"
+    "cpp": "Clone",
+    "js": "clone"
   },
   "const git_clone **": {
     "cpp": "GitClone",
     "js": "Clone"
   },
   "const git_clone *": {
-    "cpp": "GitClone",
-    "js": "Clone"
+    "cpp": "Clone",
+    "js": "clone"
   },
   "git_clone_into": {
     "cpp": "CloneInto",
@@ -9043,5 +9043,73 @@
   "const git_diff_line *": {
     "cpp": "GitDiffLine",
     "js": "DiffLine"
+  },
+  "git_checkout_opts": {
+    "cpp": "GitCheckoutOpts",
+    "js": "CheckoutOpts"
+  },
+  "git_checkout_opts **": {
+    "cpp": "GitCheckoutOpts",
+    "js": "CheckoutOpts"
+  },
+  "const git_checkout_opts **": {
+    "cpp": "GitCheckoutOpts",
+    "js": "CheckoutOpts"
+  },
+  "const git_checkout_opts *": {
+    "cpp": "GitCheckoutOpts",
+    "js": "CheckoutOpts"
+  },
+  "git_clone_opts": {
+    "cpp": "GitCloneOpts",
+    "js": "CloneOpts"
+  },
+  "git_clone_opts **": {
+    "cpp": "GitCloneOpts",
+    "js": "CloneOpts"
+  },
+  "git_clone_opts *": {
+    "cpp": "GitCloneOpts",
+    "js": "CloneOpts"
+  },
+  "const git_clone_opts **": {
+    "cpp": "GitCloneOpts",
+    "js": "CloneOpts"
+  },
+  "const git_clone_opts *": {
+    "cpp": "GitCloneOpts",
+    "js": "CloneOpts"
+  },
+  "git_clone_options": {
+    "cpp": "GitCloneOptions",
+    "js": "CloneOptions"
+  },
+  "git_clone_options **": {
+    "cpp": "GitCloneOptions",
+    "js": "CloneOptions"
+  },
+  "git_clone_options *": {
+    "cpp": "GitCloneOptions",
+    "js": "CloneOptions"
+  },
+  "const git_clone_options **": {
+    "cpp": "GitCloneOptions",
+    "js": "CloneOptions"
+  },
+  "git_remote_callbacks": {
+    "cpp": "GitRemoteCallbacks",
+    "js": "RemoteCallbacks"
+  },
+  "git_remote_callbacks **": {
+    "cpp": "GitRemoteCallbacks",
+    "js": "RemoteCallbacks"
+  },
+  "const git_remote_callbacks **": {
+    "cpp": "GitRemoteCallbacks",
+    "js": "RemoteCallbacks"
+  },
+  "const git_remote_callbacks *": {
+    "cpp": "GitRemoteCallbacks",
+    "js": "RemoteCallbacks"
   }
 }

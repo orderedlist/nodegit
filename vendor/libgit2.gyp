@@ -226,6 +226,8 @@
         }],
         ["OS=='linux'", {
           "cflags": [
+            "-DGIT_SSH",
+            "-DGIT_SSL",
             "-w",
           ],
         }],

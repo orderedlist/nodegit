@@ -42,7 +42,16 @@ typeMap.__proto__ = {
   "git_filter_check_fn": { cpp: "Function", js: "Function" },
   "git_filter_apply_fn": { cpp: "Function", js: "Function" },
   "git_filter_cleanup_fn": { cpp: "Function", js: "Function" },
+  "git_checkout_notify_cb": { cpp: "Function", js: "Function" },
+  "git_checkout_progress_cb": { cpp: "Function", js: "Function" },
+  "int (*)(const char *, int, void *)": { cpp: "Function", js: "Function" },
+  "int (*)(git_remote_completion_type, void *)": { cpp: "Function", js: "Function" },
+  "int (*)(git_cred **, const char *, const char *, unsigned int, void *)": { cpp: "Function", js: "Function" },
+  "int (*)(const git_transfer_progress *, void *)": { cpp: "Function", js: "Function" },
+  "int (*)(const char *, const git_oid *, const git_oid *, void *)": { cpp: "Function", js: "Function" },
 };
+
+typeMap["void *"] = { cpp: "Function", js: "Function" };
 
 var files = [];
 
@@ -70,7 +79,7 @@ var fileNames = Object.keys(descriptor);
 
 fileNames.forEach(function(fileName, index) {
   var file = descriptor[fileName];
-  var structFile = structs["git_" + fileName];
+  var structFile = structs["git_" + fileName] || {};
 
   // Constants.
   file.filename = fileName + ".h";
@@ -103,7 +112,7 @@ fileNames.forEach(function(fileName, index) {
     // No functions.
     cFile = Object.create(file);
     cFile.functions = [];
-    cFile.fields = descriptor[fileName].fields || structFile.fields;
+    cFile.fields = descriptor[fileName].fields || structFile.fields || [];
   }
 
   // Doesn't actually exist.
@@ -160,7 +169,12 @@ fileNames.forEach(function(fileName, index) {
     js: file.jsClassName 
   };
 
-  var fields = file.fields || cFile.fields || (structFile ? structFile.fields || [] : []);
+  var fields = file.fields || cFile.fields || (structFile ? structFile.fields || [] : []) || [];
+
+  // Ensure fields is actually an Array.
+  if (!Array.isArray(fields)) {
+    fields = [];
+  }
 
   // Decorate fields.
   file.fields = fields.map(function(field) {

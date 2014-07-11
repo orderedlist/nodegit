@@ -21,10 +21,14 @@
 <%
   // FIXME this is not general purpose enough.
 %>
+  <% if (to.size) { -%>
   Local<Array> tmpArray = NanNew<Array>(<%- toName %>-><%- to.size %>);
   for (unsigned int i = 0; i < <%- toName %>-><%- to.size %>; i++) {
     tmpArray->Set(NanNew<Number>(i), NanNew<String>(<%- toName %>-><%- to.key %>[i]));
   }
+  <% } else { -%>
+  Local<Array> tmpArray = NanNew<Array>(<%- toName %>);
+  <% } -%>
   to = tmpArray;
 <% } else { -%>
 <% if (to.copy) { -%>
